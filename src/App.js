@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./views/Home";
+import Menu from "./components/menu";
+import Footer from "./components/footer";
+import Viagem from "./views/Viagem";
+import ViagemCreate from "./views/Viagem/Create";
+import Cliente from "./views/Cliente";
+import ClienteCreate from "./views/Cliente/Create";
+import Contato from "./views/Contato";
+import Promo from "./views/Promo";
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Menu />
+     
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/Viagem" element={<Viagem/>} />
+        <Route path="/Viagem-Create" element={<ViagemCreate/>} />
+        <Route path="/Viagem-Update/:id" element={<ViagemCreate/>} />
+        <Route path="/Cliente" element={<Cliente/>} />
+        <Route path="/Cliente-Create" element={<ClienteCreate/>} />
+        <Route path="/Cliente-Update/:id" element={<ClienteCreate/>} />
+        <Route path="/Contato" element={<Contato/>}/>
+        <Route path="/Promo" element={<Promo/>}/>
+        
+      </Routes>
+      <Footer />
+      
+    </BrowserRouter>
   );
 }
 
